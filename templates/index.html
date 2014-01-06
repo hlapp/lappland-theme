@@ -4,9 +4,12 @@
         {% for article in (articles_page.object_list if articles_page else articles) %}
             <article>
                 <h2><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></h2>
-                <div class="summary">{{ article.summary }}
-                    {% include 'includes/comment_count.html' %}
-                    <a class="btn btn-default btn-xs" href="{{ SITEURL }}/{{ article.url }}">more ...</a>
+                <div class="summary">{{ article.summary }}</div>
+                <div class="footer">
+                  <a class="btn btn-default btn-xs" href="{{ SITEURL }}/{{ article.url }}">more &raquo;</a>
+                  <span class="pull-right"><i class="fa fa-calendar"></i> {{ article.date|strftime("%b %d, %Y") }}
+                  {% include 'includes/comment_count.html' %}
+                  </span>
                 </div>
             </article>
             <hr/>
